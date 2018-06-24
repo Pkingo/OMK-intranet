@@ -5,11 +5,15 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reduxThunk from 'redux-thunk';
 
+import reducers from './reducers';
+
 import App from './components/app';
 import Welcome from './components/welcome';
 
+const store = createStore(reducers, { auth: { authenticated: localStorage.getItem('token')}}, applyMiddleware(reduxThunk));
+
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
       <BrowserRouter>
         <App>
           <Route path="/" exact component={Welcome} />
