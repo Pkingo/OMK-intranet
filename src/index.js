@@ -7,8 +7,8 @@ import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 
-import App from './components/app';
-import Welcome from './components/welcome';
+import App from './views/app';
+import Welcome from './views/welcome';
 
 const store = createStore(reducers, { auth: { authenticated: localStorage.getItem('token')}}, applyMiddleware(reduxThunk));
 
