@@ -9,16 +9,18 @@ import reducers from './reducers';
 
 import App from './views/app';
 import Welcome from './views/welcome';
+import Profile from './views/profile';
 
-const store = createStore(reducers, { auth: { authenticated: localStorage.getItem('token')}}, applyMiddleware(reduxThunk));
+const store = createStore(reducers, { auth: { authenticated: localStorage.getItem('token') } }, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
-    <Provider store={store}>
-      <BrowserRouter>
-        <App>
-          <Route path="/" exact component={Welcome} />
-        </App>
-      </BrowserRouter>
-    </Provider>,
-    document.querySelector('#root')
-  );
+  <Provider store={store}>
+    <BrowserRouter>
+      <App>
+        <Route path="/" exact component={Welcome} />
+        <Route path="/" component={Profile} />
+      </App>
+    </BrowserRouter>
+  </Provider>,
+  document.querySelector('#root')
+);
