@@ -1,11 +1,17 @@
 import React from 'react';
-import Header from '../components/header/';
+import NavMenu from '../components/navmenu/';
 
 export default ({ children }) => {
   return (
     <div>
-      <Header />
-      {children}
+      <div className="row">
+        <div className="col-md-2">
+          <NavMenu />
+        </div>
+        <div className="col-md-10">
+          {children}
+        </div>
+      </div>
     </div>
   );
 };
